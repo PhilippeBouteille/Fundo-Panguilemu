@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas Frecuentes — Fundo Panguilemu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#151510;--dark-2:#1e1e16;--parchment:#f4ede0;--cream:#faf6ef;--green:#3d6b4a;--green-light:#5a8f6a;--amber:#b8722a;--amber-light:#d4924e;--text-dark:#1a1a12;--text-muted:#7a7060;--border:rgba(255,255,255,0.08);--border-dark:rgba(0,0,0,0.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);-webkit-font-smoothing:antialiased}
+.announcement{background:var(--green);color:var(--parchment);text-align:center;padding:10px 20px;font-size:13px;letter-spacing:.08em;font-weight:500}
+nav{position:sticky;top:0;z-index:100;background:var(--dark);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;border-bottom:1px solid var(--border)}
+.nav-logo img{height:40px;filter:brightness(0) invert(1)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{color:rgba(244,237,224,.7);text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--parchment)}
+.nav-cta{background:var(--amber);color:var(--cream);padding:10px 24px;text-decoration:none;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--amber-light)}
+.page-header{background:var(--dark-2);padding:80px;border-bottom:1px solid var(--border)}
+.page-header .breadcrumb{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,237,224,.35);margin-bottom:20px}
+.page-header .breadcrumb a{color:rgba(244,237,224,.35);text-decoration:none}
+.page-header .breadcrumb span{margin:0 8px}
+.page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,72px);font-weight:300;color:var(--parchment);line-height:1.05;margin-bottom:16px}
+.page-header h1 em{font-style:italic;color:var(--amber-light)}
+.page-header p{font-size:16px;color:rgba(244,237,224,.6);font-weight:300;max-width:540px}
+.section-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:16px;display:block}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.15;margin-bottom:24px}
+h2 em{font-style:italic;color:var(--green)}
+.faq-layout{display:grid;grid-template-columns:280px 1fr;gap:0;padding:80px;align-items:start}
+.faq-nav{position:sticky;top:96px;padding-right:48px;border-right:1px solid var(--border-dark)}
+.faq-nav h4{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;font-weight:600}
+.faq-nav ul{list-style:none}
+.faq-nav ul li{margin-bottom:4px}
+.faq-nav ul a{display:block;padding:8px 12px;font-size:14px;color:var(--text-muted);text-decoration:none;transition:color .2s,background .2s;border-radius:2px}
+.faq-nav ul a:hover,.faq-nav ul a.active{color:var(--amber);background:rgba(184,114,42,.06)}
+.faq-content{padding-left:64px}
+.faq-group{margin-bottom:64px}
+.faq-group h2{margin-bottom:36px;padding-bottom:20px;border-bottom:1px solid var(--border-dark)}
+.faq-item{border-bottom:1px solid var(--border-dark);overflow:hidden}
+.faq-question{display:flex;justify-content:space-between;align-items:center;padding:22px 0;cursor:pointer;gap:16px}
+.faq-question h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;line-height:1.3;color:var(--text-dark)}
+.faq-toggle{width:28px;height:28px;border:1px solid var(--border-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,border-color .2s;font-size:16px;color:var(--text-muted)}
+.faq-item.open .faq-toggle{background:var(--amber);border-color:var(--amber);color:white}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-answer{max-height:600px}
+.faq-answer-inner{padding:0 0 28px;font-size:15px;line-height:1.8;color:var(--text-muted);font-weight:300}
+.faq-answer-inner p{margin-bottom:16px}
+.faq-answer-inner p:last-child{margin-bottom:0}
+.faq-answer-inner strong{color:var(--text-dark);font-weight:500}
+.faq-answer-inner ol,.faq-answer-inner ul{padding-left:24px;margin-bottom:16px}
+.faq-answer-inner li{margin-bottom:10px;font-size:15px;line-height:1.75}
+.pickup-section{background:var(--dark-2);padding:0}
+.pickup-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border)}
+.pickup-card{padding:48px 40px;border-right:1px solid var(--border)}
+.pickup-card:last-child{border-right:none}
+.pickup-city{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:16px;display:block}
+.pickup-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--parchment);margin-bottom:20px}
+.pickup-card p{font-size:14px;line-height:1.7;color:rgba(244,237,224,.55);font-weight:300;margin-bottom:6px}
+.pickup-card p strong{color:rgba(244,237,224,.8);font-weight:500}
+.contact-section{background:var(--green);padding:80px;text-align:center;color:var(--parchment)}
+.contact-section h2{color:var(--parchment)}
+.contact-section h2 em{color:var(--amber-light)}
+.contact-section p{font-size:16px;color:rgba(244,237,224,.78);max-width:480px;margin:0 auto 40px;font-weight:300;line-height:1.75}
+.btn-primary{display:inline-block;background:var(--amber);color:var(--cream);padding:16px 40px;text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;transition:background .2s;margin:0 8px}
+.btn-primary:hover{background:var(--amber-light)}
+.btn-ghost{display:inline-block;border:1px solid rgba(244,237,224,.4);color:var(--parchment);padding:16px 40px;text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:border-color .2s;margin:0 8px}
+.btn-ghost:hover{border-color:var(--parchment)}
+footer{background:#0e0e0a;color:rgba(244,237,224,.55);padding:64px 80px 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-logo img{height:34px;filter:brightness(0) invert(1) opacity(.65);margin-bottom:20px}
+.footer-tagline{font-size:14px;line-height:1.75;max-width:260px}
+.footer-social{display:flex;gap:20px;margin-top:24px}
+.footer-social a{color:rgba(244,237,224,.35);text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.footer-social a:hover{color:var(--amber-light)}
+.footer-col h4{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,237,224,.25);margin-bottom:20px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul a{color:rgba(244,237,224,.55);text-decoration:none;font-size:14px;transition:color .2s}
+.footer-col ul a:hover{color:var(--parchment)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:rgba(244,237,224,.25)}
+@media(max-width:1024px){nav{padding:0 24px}.nav-links{gap:20px}.page-header,.contact-section{padding:60px 40px}.faq-layout{padding:60px 40px;grid-template-columns:1fr}}
+@media(max-width:768px){.nav-links{display:none}.faq-nav{display:none}.faq-content{padding-left:0}.pickup-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="announcement">🌿 Carne Regenerativa ahora disponible en Puerto Montt y Santiago — Pedidos esta semana, despacho la próxima</div>
+
+<nav>
+  <div class="nav-logo"><a href="index.html"><img src="https://www.fundopanguilemu.com/cdn/shop/files/FPRlogo-color.png?v=1711477417" alt="Fundo Panguilemu"></a></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="productos.html">Productos</a></li>
+    <li><a href="historia.html">Nuestra Historia</a></li>
+    <li><a href="faq.html" class="active">Preguntas Frecuentes</a></li>
+  </ul>
+  <a href="productos.html" class="nav-cta">Comprar Ahora</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Inicio</a> <span>›</span> Preguntas Frecuentes</div>
+  <h1>Todo lo que<br>necesitas <em>saber</em></h1>
+  <p>Respuestas a las preguntas más frecuentes sobre nuestros productos, el proceso de preventa, la logística de entrega y la ganadería regenerativa.</p>
+</div>
+
+<!-- FAQ LAYOUT -->
+<div class="faq-layout">
+  <div class="faq-nav">
+    <h4>Categorías</h4>
+    <ul>
+      <li><a href="#proceso" class="active">El Proceso de Compra</a></li>
+      <li><a href="#regenerativo">¿Qué es Regenerativo?</a></li>
+      <li><a href="#productos-faq">Los Productos</a></li>
+      <li><a href="#logistica">Logística y Retiro</a></li>
+      <li><a href="#congelador">El Congelador</a></li>
+    </ul>
+  </div>
+
+  <div class="faq-content">
+
+    <!-- PROCESO -->
+    <div id="proceso" class="faq-group">
+      <span class="section-label">Compra</span>
+      <h2>El proceso de <em>preventa</em></h2>
+
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Cómo funciona la preventa paso a paso?</h3>
+          <div class="faq-toggle">−</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <ol>
+              <li><strong>Reserva con anticipo.</strong> Eliges tu pack y pagas el anticipo correspondiente vía Shopify o Mercado Pago. Ese monto asegura tu animal.</li>
+              <li><strong>Nosotros cuidamos tu animal.</strong> Sigue pastando en nuestros potreros bajo Manejo Holístico. Te mantenemos informado del avance de la temporada.</li>
+              <li><strong>Procesado y envasado.</strong> En otoño, cuando el animal alcanza su máxima expresión nutricional, lo procesamos. Los cortes se envasan al vacío en envases compostables, con tu nombre.</li>
+              <li><strong>Confirmamos el peso final.</strong> Te enviamos el peso real del producto y el saldo a cancelar. Una vez pagado, coordinamos el despacho.</li>
+              <li><strong>Retiro o despacho.</strong> Eliges si retiras en uno de nuestros puntos en Coyhaique, o coordinamos el envío a Puerto Montt o Santiago.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Por qué el precio final puede diferir del precio de preventa?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Los animales se crían y pesan de manera natural, por lo que el peso final varía. El precio de la preventa se basa en un peso estimado. Cuando procesamos tu animal, te comunicamos el peso real y el precio final exacto — que puede ser un poco mayor o menor al estimado.</p>
+            <p>Siempre pagás el precio justo por el peso real, sin sorpresas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Puedo visitar el fundo para ver mi animal?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Sí. Creemos firmemente en la transparencia total. Si tienes una pregunta, te respondemos. Si quieres visitar, organizamos un tour por el Fundo Panguilemu.</p>
+            <p>Contáctanos por WhatsApp o email para coordinar tu visita. No tenemos nada que esconder.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- REGENERATIVO -->
+    <div id="regenerativo" class="faq-group">
+      <span class="section-label">La Filosofía</span>
+      <h2>¿Qué es la ganadería <em>regenerativa</em>?</h2>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Qué significa exactamente "regenerativo"?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La ganadería regenerativa es una filosofía y un sistema de manejo que busca <strong>mejorar el ecosistema</strong> mediante la cría de animales, en lugar de degradarlo.</p>
+            <p>En la práctica, usamos el Manejo Holístico del pastoreo: los animales rotan por diferentes potreros de manera planificada, imitando los movimientos naturales de los herbívoros salvajes. Esto permite que la pradera se recupere entre pastoreos, que las raíces profundicen, que el suelo capture carbono y que la biodiversidad aumente.</p>
+            <p>El resultado es un ecosistema más sano, temporada a temporada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Es lo mismo que "orgánico" o "natural"?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>No exactamente. <strong>Orgánico</strong> es una certificación que define qué insumos se pueden usar. <strong>Natural</strong> es un término de marketing con poca regulación.</p>
+            <p><strong>Regenerativo</strong> va más allá: no solo evita daños (como lo haría lo orgánico), sino que activamente <em>mejora</em> el estado del suelo, el agua y la biodiversidad. No tenemos certificación orgánica formal en este momento, pero nuestras prácticas son transparentes y verificables — por eso ofrecemos visitas al fundo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿La ganadería regenerativa es mejor para el clima?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Bien manejada, sí. El pastoreo regenerativo puede capturar carbono atmosférico en el suelo a través de la fotosíntesis y la actividad microbiana. Esto contrasta con la ganadería industrial, que típicamente degrada el suelo y emite más carbono del que captura.</p>
+            <p>No afirmamos ser carbono neutro, pero el movimiento de nuestros animales va en la dirección correcta.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRODUCTOS -->
+    <div id="productos-faq" class="faq-group">
+      <span class="section-label">Calidad</span>
+      <h2>Sobre los <em>productos</em></h2>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿La carne regenerativa sabe diferente?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Muchos clientes notan una diferencia. La carne de animales que pastorean libremente y comen gramíneas naturales tiene un perfil de sabor más complejo — más "cárnico", con notas a hierbas dependiendo de la temporada.</p>
+            <p>También tiene menos grasa total, pero mejor perfil de grasa (más Omega-3, más CLA), lo que le da una textura diferente. Algunos cortes requieren preparación un poco diferente a la carne industrial — pero el resultado justifica el aprendizaje.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Qué cortes incluye cada pack?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Cada pack incluye una selección variada de cortes del animal: carnes para asar a la parrilla (vacío, entraña, lomo), carnes para guisar (osobuco, plateada, tapadillo), molido, y según el tamaño del pack, cortes especiales como filete o asado de tira.</p>
+            <p>Nos esforzamos por aprovechar íntegramente el animal, por lo que los packs grandes incluyen una mayor variedad, incluyendo cortes de menor demanda como lengua u osobuco. Si tienes preferencias específicas, contáctanos antes de la temporada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Los animales reciben antibióticos o hormonas alguna vez?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Nunca de forma preventiva o como promotores de crecimiento. Ese es un compromiso no negociable.</p>
+            <p>En el caso excepcional de que un animal enfermara y requiriera tratamiento veterinario, lo trataríamos — porque el bienestar animal está primero. Pero ese animal no entraría al proceso de venta de carne regenerativa.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LOGISTICA -->
+    <div id="logistica" class="faq-group">
+      <span class="section-label">Entrega</span>
+      <h2>Logística y <em>retiro</em></h2>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿A qué ciudades despachan?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Actualmente despachamos a <strong>Coyhaique</strong>, <strong>Puerto Montt</strong> y <strong>Santiago</strong>. En Coyhaique también tenemos puntos de retiro presencial.</p>
+            <p>Estamos ampliando la cobertura de despacho — si no estás en ninguna de estas ciudades, contáctanos y lo evaluamos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Cuáles son los puntos y horarios de retiro en Coyhaique?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Tenemos dos puntos de retiro en Coyhaique:</p>
+            <ul>
+              <li><strong>Canal Costa 790</strong> — Martes y Viernes, 12:00 a 14:00 hrs</li>
+              <li><strong>Calle Moraleda</strong> (junto a Huerto Cuatro Estaciones) — Jueves, 12:00 a 14:00 hrs</li>
+            </ul>
+            <p>Te avisamos con anticipación cuando tu pedido esté listo para retirar.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CONGELADOR -->
+    <div id="congelador" class="faq-group">
+      <span class="section-label">Almacenamiento</span>
+      <h2>El <em>congelador</em></h2>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Por qué comprar en cantidad?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Hay cinco razones principales:</p>
+            <ol>
+              <li><strong>Conexión directa con tu comida.</strong> Sabes exactamente de dónde viene, quién la produjo y cómo.</li>
+              <li><strong>Nutrición constante.</strong> Siempre tienes proteína de calidad lista en el congelador, sin depender del supermercado.</li>
+              <li><strong>Confianza total.</strong> Sin etiquetas confusas ni ingredientes escondidos.</li>
+              <li><strong>Seguridad alimentaria.</strong> Independencia del sistema de distribución convencional.</li>
+              <li><strong>Mejor precio por kg.</strong> Los packs de preventa son el mejor precio posible — hasta un 30% menos que comprar cortes individuales en comercios especializados.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggle(this)">
+          <h3>¿Cuánto tiempo dura la carne envasada al vacío en el congelador?</h3>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La carne envasada al vacío y correctamente congelada a -18°C se mantiene en óptimas condiciones entre <strong>12 y 24 meses</strong>. El envasado al vacío elimina el oxígeno, previniendo la quemadura por frío y la oxidación.</p>
+            <p>Si tu congelador mantiene temperatura estable y no abres y cierras seguido, puedes comprar tu pack de otoño y consumirlo tranquilamente durante todo el año siguiente.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- PICKUP SECTION -->
+<div class="pickup-section">
+  <div class="pickup-grid">
+    <div class="pickup-card">
+      <span class="pickup-city">Coyhaique</span>
+      <h3>Canal Costa</h3>
+      <p><strong>Dirección:</strong> Canal Costa 790, Coyhaique</p>
+      <p><strong>Días:</strong> Martes y Viernes</p>
+      <p><strong>Horario:</strong> 12:00 – 14:00 hrs</p>
+    </div>
+    <div class="pickup-card">
+      <span class="pickup-city">Coyhaique</span>
+      <h3>Huerto Cuatro Estaciones</h3>
+      <p><strong>Dirección:</strong> Calle Moraleda, Coyhaique</p>
+      <p><strong>Días:</strong> Jueves</p>
+      <p><strong>Horario:</strong> 12:00 – 14:00 hrs</p>
+    </div>
+    <div class="pickup-card">
+      <span class="pickup-city">Puerto Montt · Santiago</span>
+      <h3>Despacho a domicilio</h3>
+      <p>Coordinamos el envío a tu dirección.</p>
+      <p>Consultar fechas y costos de despacho por WhatsApp.</p>
+      <p style="margin-top:16px"><strong>Próximas ciudades:</strong> En expansión</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <span class="section-label">¿Tienes más preguntas?</span>
+  <h2>Hablemos<br><em>directamente</em></h2>
+  <p>Lizzie y Jose responden personalmente. Por WhatsApp, email, o agenda una visita al fundo para conocernos en persona.</p>
+  <a href="productos.html" class="btn-primary">Ver Productos</a>
+  <a href="historia.html" class="btn-ghost">Nuestra Historia</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><img src="https://www.fundopanguilemu.com/cdn/shop/files/FPRlogo-color.png?v=1711477417" alt="Fundo Panguilemu"></div>
+      <p class="footer-tagline">Campo familiar regenerativo en Coyhaique, Patagonia. Vacuno y cordero a pastoreo, sin antibióticos ni hormonas, desde 2013.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/fundopanguilemu" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/fundopanguilemu" target="_blank">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Tienda</h4>
+      <ul>
+        <li><a href="productos.html">Todos los productos</a></li>
+        <li><a href="productos.html">Packs de preventa</a></li>
+        <li><a href="productos.html">Parrilla &amp; Express</a></li>
+        <li><a href="productos.html">Hamburguesas &amp; Albóndigas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>El Fundo</h4>
+      <ul>
+        <li><a href="historia.html">Nuestra Historia</a></li>
+        <li><a href="faq.html">Preguntas Frecuentes</a></li>
+        <li><a href="faq.html">Cómo comprar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Retiro</h4>
+      <ul>
+        <li><a href="#">Canal Costa 790, Coyhaique</a></li>
+        <li><a href="#">Mar &amp; Vie · 12:00–14:00</a></li>
+        <li><a href="#">Calle Moraleda, Coyhaique</a></li>
+        <li><a href="#">Jueves · 12:00–14:00</a></li>
+        <li><a href="#">Puerto Montt · Santiago</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Fundo Panguilemu · Coyhaique, Aysén, Chile</span>
+    <span>Del campo a tu mesa</span>
+  </div>
+</footer>
+
+<script>
+function toggle(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{
+    i.classList.remove('open');
+    i.querySelector('.faq-toggle').textContent='+';
+  });
+  if(!isOpen){
+    item.classList.add('open');
+    el.querySelector('.faq-toggle').textContent='−';
+  }
+}
+</script>
+</body>
+</html>
